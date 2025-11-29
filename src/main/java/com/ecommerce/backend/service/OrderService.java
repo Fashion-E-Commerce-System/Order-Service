@@ -20,10 +20,10 @@ public class OrderService {
     private final ObjectMapper objectMapper;
 
 
-    public void createOrder(OrderRequest orderRequest) {
+    public void createOrder(OrderRequest orderRequest, String username) {
         for (com.ecommerce.backend.dto.Order order : orderRequest.getOrders()) {
             Order orderEntity = Order.builder()
-                    .username(order.getUsername())
+                    .username(username)
                     .productId(order.getProductId())
                     .quantity(order.getQuantity())
                     .build();
